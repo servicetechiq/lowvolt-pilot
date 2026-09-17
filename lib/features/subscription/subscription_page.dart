@@ -38,7 +38,8 @@ class _SubscriptionPageState extends State<SubscriptionPage> {
       _products = products;
       _loading = false;
       if (products.isEmpty) {
-        _error = 'Subscription products are not available yet. Create the monthly and annual products in Play Console using the IDs in SubscriptionService.';
+        _error =
+            'Subscription products are not available yet. Create the monthly and annual products in Play Console using the IDs in SubscriptionService.';
       }
     });
   }
@@ -50,9 +51,14 @@ class _SubscriptionPageState extends State<SubscriptionPage> {
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
-          Text('Built for field technicians', style: Theme.of(context).textTheme.headlineSmall),
+          Text(
+            'Built for field technicians',
+            style: Theme.of(context).textTheme.headlineSmall,
+          ),
           const SizedBox(height: 8),
-          const Text('Unlock full system design, commissioning, troubleshooting, unlimited jobs, and professional reports.'),
+          const Text(
+            'Unlock full system design, commissioning, troubleshooting, unlimited jobs, and professional reports.',
+          ),
           const SizedBox(height: 20),
           const Card(
             child: Padding(
@@ -60,7 +66,10 @@ class _SubscriptionPageState extends State<SubscriptionPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('Pro includes', style: TextStyle(fontWeight: FontWeight.w700)),
+                  Text(
+                    'Pro includes',
+                    style: TextStyle(fontWeight: FontWeight.w700),
+                  ),
                   SizedBox(height: 8),
                   Text('• Full camera/access/network/wireless workflows'),
                   Text('• Advanced system design tools'),
@@ -74,10 +83,14 @@ class _SubscriptionPageState extends State<SubscriptionPage> {
           ),
           const SizedBox(height: 16),
           if (_loading) const Center(child: CircularProgressIndicator()),
-          if (_error != null) Padding(
-            padding: const EdgeInsets.symmetric(vertical: 8),
-            child: Text(_error!, style: TextStyle(color: Theme.of(context).colorScheme.error)),
-          ),
+          if (_error != null)
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8),
+              child: Text(
+                _error!,
+                style: TextStyle(color: Theme.of(context).colorScheme.error),
+              ),
+            ),
           for (final product in _products)
             Padding(
               padding: const EdgeInsets.only(bottom: 10),

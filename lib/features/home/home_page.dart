@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../design/cameras/camera_designer_page.dart';
+import '../install/cameras/camera_install_page.dart';
 import '../subscription/subscription_page.dart';
 
 class HomePage extends StatelessWidget {
@@ -12,9 +13,9 @@ class HomePage extends StatelessWidget {
         title: const Text('LowVolt Pilot'),
         actions: [
           TextButton.icon(
-            onPressed: () => Navigator.of(context).push(
-              MaterialPageRoute(builder: (_) => const SubscriptionPage()),
-            ),
+            onPressed: () => Navigator.of(
+              context,
+            ).push(MaterialPageRoute(builder: (_) => const SubscriptionPage())),
             icon: const Icon(Icons.workspace_premium_outlined),
             label: const Text('Pro'),
           ),
@@ -25,9 +26,9 @@ class HomePage extends StatelessWidget {
         children: [
           Text(
             'What are you doing today?',
-            style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                  fontWeight: FontWeight.w700,
-                ),
+            style: Theme.of(
+              context,
+            ).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.w700),
           ),
           const SizedBox(height: 16),
           _PrimaryAction(
@@ -39,10 +40,13 @@ class HomePage extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 12),
-          const _PrimaryAction(
+          _PrimaryAction(
             icon: Icons.build_circle_outlined,
             title: 'Install / Commission',
             subtitle: 'Step-by-step setup and final commissioning checks.',
+            onTap: () => Navigator.of(context).push(
+              MaterialPageRoute(builder: (_) => const CameraInstallPage()),
+            ),
           ),
           const SizedBox(height: 12),
           const _PrimaryAction(
@@ -59,13 +63,17 @@ class HomePage extends StatelessWidget {
                 ListTile(
                   leading: Icon(Icons.assignment_outlined),
                   title: Text('Jobs'),
-                  subtitle: Text('Save sites, devices, tests, notes, and reports.'),
+                  subtitle: Text(
+                    'Save sites, devices, tests, notes, and reports.',
+                  ),
                 ),
                 Divider(height: 1),
                 ListTile(
                   leading: Icon(Icons.handyman_outlined),
                   title: Text('Quick Tools'),
-                  subtitle: Text('Network, PoE, voltage, storage, and field tools.'),
+                  subtitle: Text(
+                    'Network, PoE, voltage, storage, and field tools.',
+                  ),
                 ),
                 Divider(height: 1),
                 ListTile(

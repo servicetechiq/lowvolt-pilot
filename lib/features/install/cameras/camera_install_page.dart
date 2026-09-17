@@ -119,7 +119,7 @@ class _CameraInstallPageState extends State<CameraInstallPage> {
     final parts = raw.split('.');
     if (parts.length != 4) return const [];
     final octets = parts.map(int.tryParse).toList();
-    if (octets.any((v) => v == null || v! < 0 || v > 255)) return const [];
+    if (octets.any((v) => v == null || v < 0 || v > 255)) return const [];
 
     final prefix = '${octets[0]}.${octets[1]}.${octets[2]}.';
     final start = octets[3]!;

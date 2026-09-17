@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../design/cameras/camera_designer_page.dart';
 import '../install/cameras/camera_install_page.dart';
+import '../troubleshoot/cameras/camera_troubleshoot_page.dart';
 import '../subscription/subscription_page.dart';
 
 class HomePage extends StatelessWidget {
@@ -49,10 +50,13 @@ class HomePage extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 12),
-          const _PrimaryAction(
+          _PrimaryAction(
             icon: Icons.troubleshoot_outlined,
             title: 'Troubleshoot',
             subtitle: 'Start with the symptom and work toward the cause.',
+            onTap: () => Navigator.of(context).push(
+              MaterialPageRoute(builder: (_) => const CameraTroubleshootPage()),
+            ),
           ),
           const SizedBox(height: 24),
           Text('Workspace', style: Theme.of(context).textTheme.titleMedium),

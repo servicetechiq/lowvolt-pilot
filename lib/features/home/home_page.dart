@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+
+import '../account/account_page.dart';
 import '../design/cameras/camera_designer_page.dart';
 import '../install/cameras/camera_install_page.dart';
-import '../troubleshoot/cameras/camera_troubleshoot_page.dart';
 import '../subscription/subscription_page.dart';
+import '../troubleshoot/cameras/camera_troubleshoot_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -18,7 +20,14 @@ class HomePage extends StatelessWidget {
               context,
             ).push(MaterialPageRoute(builder: (_) => const SubscriptionPage())),
             icon: const Icon(Icons.workspace_premium_outlined),
-            label: const Text('Pro'),
+            label: const Text('Plans'),
+          ),
+          IconButton(
+            tooltip: 'Account',
+            onPressed: () => Navigator.of(
+              context,
+            ).push(MaterialPageRoute(builder: (_) => const AccountPage())),
+            icon: const Icon(Icons.account_circle_outlined),
           ),
         ],
       ),
